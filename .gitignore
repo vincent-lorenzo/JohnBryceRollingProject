@@ -205,3 +205,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+Terraform/.terraform.lock.hcl
+Terraform/terraform.tfstate
+Terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/6.17.0/windows_amd64/LICENSE.txt
+Terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/6.17.0/windows_amd64/terraform-provider-aws_v6.17.0_x5.exe
+Terraform/.terraform/providers/registry.terraform.io/hashicorp/http/3.5.0/windows_amd64/LICENSE.txt
+Terraform/.terraform/providers/registry.terraform.io/hashicorp/http/3.5.0/windows_amd64/terraform-provider-http_v3.5.0_x5.exe
+Terraform/.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/windows_amd64/LICENSE.txt
+Terraform/.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/windows_amd64/terraform-provider-local_v2.5.3_x5.exe
+Terraform/.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/windows_amd64/LICENSE.txt
+Terraform/.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/windows_amd64/terraform-provider-tls_v4.1.0_x5.exe
+Terraform/builder_key.pem
+Terraform/terraform.tfstate.backup
