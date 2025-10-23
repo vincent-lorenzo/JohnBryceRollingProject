@@ -18,7 +18,7 @@ Outputs instance public IP, security group ID, and SSH key info
 
 Clone the repo:
 
-git clone https://github.com/your-username/terraform-ec2-docker-builder.git
+git clone https://github.com/vincent-lorenzo/JohnBryceRollingProject/tree/main/Terraform
 cd terraform-ec2-docker-builder
 
 
