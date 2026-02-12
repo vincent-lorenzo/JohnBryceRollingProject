@@ -10,11 +10,8 @@ AWS_SECRET_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 REGION = os.getenv("AWS_REGION", "us-east-2")
 
 # Initialize Boto3 session and clients
-session = boto3.Session(
-    aws_access_key_id=AWS_ACCESS_KEY,
-    aws_secret_access_key=AWS_SECRET_KEY,
-    region_name=REGION
-)
+session = boto3.Session(region_name=REGION)
+
 ec2_client = session.client("ec2")
 elb_client = session.client("elbv2")
 

@@ -217,3 +217,4 @@ Terraform/.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/windows
 Terraform/.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/windows_amd64/terraform-provider-tls_v4.1.0_x5.exe
 Terraform/builder_key.pem
 Terraform/terraform.tfstate.backup
+k8s/
