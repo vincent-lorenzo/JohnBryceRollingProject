@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Make sure this ID matches the one you created in Jenkins Credentials
         DOCKERHUB_CRED_ID = 'dockerhub'
         IMAGE_NAME = 'vincentlorenzo/flask-aws-monitor'
     }
@@ -10,7 +9,6 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                // Clones the code from the GitHub repo defined in the job
                 checkout scm
             }
         }
@@ -20,8 +18,6 @@ pipeline {
                 stage('Linting') {
                     steps {
                         echo "Running linting..."
-                        // --break-system-packages bypasses the PEP 668 protection
-                        // || true ensures the build continues even if linting finds issues
                         sh "pip install flake8 --break-system-packages && flake8 python/app.py || true"
                     }
                 }
@@ -37,14 +33,12 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker image..."
-                // -f points to the Dockerfile inside the Docker/ folder
                 sh "docker build -t ${IMAGE_NAME}:latest -f Docker/Dockerfile ."
             }
         }
 
         stage('Push to Docker Hub') {
             steps {
-                // Securely logs into Docker Hub using the credentials stored in Jenkins
                 withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CRED_ID}", passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
                     sh "echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin"
                     sh "docker push ${IMAGE_NAME}:latest"
@@ -55,19 +49,10 @@ pipeline {
 
     post {
         success {
-            echo "Pipeline completed successfully! Image pushed to Docker Hub."
+            echo "Pipeline completed successfully!"
         }
         failure {
-            echo "Pipeline failed! Check the console output for errors."
-        }
-    }
-}
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed! Check logs for details.'
+            echo "Pipeline failed!"
         }
     }
 }
